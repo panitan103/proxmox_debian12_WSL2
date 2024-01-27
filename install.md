@@ -5,7 +5,8 @@ Installing Proxmox VE on WSL2
 wsl --install -d Debian
 ```
 
-2. enable systemd and disable generateHosts
+2. enable systemd and disable generateHost
+
 ```sh
 sudo -i
 nano /etc/wsl.conf
@@ -20,8 +21,8 @@ generateHosts = false
 Reboot once after edit
 ```sh
 wsl --shutdown
+wsl -d Debian
 ```
-
 
 3. Change hostname of machine to pvelocalhost
 ```sh
