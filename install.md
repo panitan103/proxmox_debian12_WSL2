@@ -21,7 +21,7 @@ generateHosts = false
 
 3. remove 127.0.1.1 in /etc/hosts
 ```sh
-/etc/hosts
+nano /etc/hosts
 ```
 ```sh
 # [network]
