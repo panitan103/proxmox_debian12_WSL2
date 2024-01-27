@@ -51,6 +51,7 @@ wsl -d Debian
 ---------------------------
 
 4. Install Proxmox VE https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm
+
 add Proxmox VE Repository and update 
 
 ```sh
