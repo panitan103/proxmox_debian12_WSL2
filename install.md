@@ -18,11 +18,6 @@ systemd=true
 [network]
 generateHosts = false
 ```
-Reboot once after edit
-```sh
-wsl --shutdown
-wsl -d Debian
-```
 
 3. Change hostname of machine to pvelocalhost
 ```sh
@@ -47,8 +42,18 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
+
+Reboot once after edit
+```sh
+wsl --shutdown
+wsl -d Debian
+```
 ---------------------------
 
+4. Insatall Proxmox VE https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm
+add Proxmox VE Repository and update 
+
+```sh
 apt update && apt upgrade
 
 apt install wget
@@ -56,11 +61,20 @@ apt install wget
 echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list
 wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg 
 apt update && apt full-upgrade
+```
 
+Then install proxmox kernel
 
----------------------
-
+```sh
 apt install proxmox-default-kernel
--------------------------
+```
+Reboot once after install proxmox kernel
+```sh
+wsl --shutdown
+wsl -d Debian
+```
 
+insatll proxmox-ve
+```sh
 apt install proxmox-ve --no-install-recommends
+```
