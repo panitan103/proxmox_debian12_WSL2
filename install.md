@@ -10,7 +10,7 @@ wsl --install -d Debian
 sudo -i
 nano /etc/wsl.conf
 
->> [boot]
+[boot]
 systemd=true
 
 [network]
