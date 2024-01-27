@@ -22,7 +22,7 @@ generateHosts = false
 3. Change hostname of machine to pvelocalhost
 ```sh
 hostname --ip-address
-# output 192.168.15.77 should return your IP address here
+# output 127.0.1.1 should return your IP address here
 ```
 edit /etc/hosts to be your {ip} pve     pve.domain.local pvelocalhost 
 ```sh
@@ -50,16 +50,15 @@ wsl -d Debian
 ```
 ---------------------------
 
-4. Insatall Proxmox VE https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm
+4. Install Proxmox VE https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm
 add Proxmox VE Repository and update 
 
 ```sh
-apt update && apt upgrade
-
-apt install wget
+apt update && apt upgrade && apt install wget
 
 echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list
 wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg 
+
 apt update && apt full-upgrade
 ```
 
