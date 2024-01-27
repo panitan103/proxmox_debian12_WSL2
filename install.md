@@ -27,7 +27,7 @@ nano /etc/hosts
 # [network]
 # generateHosts = false
 127.0.0.1       localhost
-#127.0.1.1      
+#127.0.1.1      #remove this line
 
 192.168.1.16    host.docker.internal
 192.168.1.16    gateway.docker.internal
