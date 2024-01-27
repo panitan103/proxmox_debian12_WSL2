@@ -9,12 +9,36 @@ wsl --install -d Debian
 ```sh
 sudo -i
 nano /etc/wsl.conf
-
+```
+```sh
 [boot]
 systemd=true
 
 [network]
 generateHosts = false
+```
+3. Change hostname of machine to pvelocalhost
+```sh
+hostname --ip-address
+# output 192.168.15.77 should return your IP address here
+```
+edit /etc/hosts to be your {ip} pve     pve.domain.local pvelocalhost 
+```sh
+# [network]
+# generateHosts = false
+127.0.0.1       localhost
+127.0.1.1       pve     pve.domain.local pvelocalhost
+
+192.168.1.16    host.docker.internal
+192.168.1.16    gateway.docker.internal
+127.0.0.1       kubernetes.docker.internal
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
 ```
 nano /etc/hosts
 >> 127.0.1.1       pve     pve.domain.local pvelocalhost
