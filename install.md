@@ -17,6 +17,12 @@ systemd=true
 [network]
 generateHosts = false
 ```
+Reboot once after edit
+```sh
+wsl --shutdown
+```
+
+
 3. Change hostname of machine to pvelocalhost
 ```sh
 hostname --ip-address
@@ -27,7 +33,7 @@ edit /etc/hosts to be your {ip} pve     pve.domain.local pvelocalhost
 # [network]
 # generateHosts = false
 127.0.0.1       localhost
-127.0.1.1       pve     pve.domain.local pvelocalhost
+127.0.1.1       pve     pve.domain.local pvelocalhost #Edit this line
 
 192.168.1.16    host.docker.internal
 192.168.1.16    gateway.docker.internal
@@ -40,9 +46,6 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
-nano /etc/hosts
->> 127.0.1.1       pve     pve.domain.local pvelocalhost
-
 ---------------------------
 
 apt update && apt upgrade
