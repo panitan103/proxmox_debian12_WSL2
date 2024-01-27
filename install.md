@@ -19,17 +19,15 @@ systemd=true
 generateHosts = false
 ```
 
-3. Change hostname of machine to pvelocalhost
+3. remove 127.0.1.1 in /etc/hosts
 ```sh
-hostname --ip-address
-# output 127.0.1.1 should return your IP address here
+/etc/hosts
 ```
-edit /etc/hosts to be your {ip} pve     pve.domain.local pvelocalhost 
 ```sh
 # [network]
 # generateHosts = false
 127.0.0.1       localhost
-127.0.1.1       pve     pve.domain.local pvelocalhost #Edit this line
+#127.0.1.1      
 
 192.168.1.16    host.docker.internal
 192.168.1.16    gateway.docker.internal
@@ -42,7 +40,11 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
-
+Run hostname --ip-address to check your ip address
+```sh
+hostname --ip-address
+# output should return all of your IP address from host
+```
 Reboot once after edit
 ```sh
 wsl --shutdown
